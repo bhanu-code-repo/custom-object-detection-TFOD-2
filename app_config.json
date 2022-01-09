@@ -1,9 +1,33 @@
 {
   "app_conf": {
     "image_capture": false,
-    "train_model": false,
+    "train_model": true,
     "detect_object": true
   },
   "app_mode": "debug",
+  "image_capture": {
+    "dirs": {
+      "images": "workspace images collected-images"
+    },
+    "count_per_label": 10,
+    "labels": [
+      "bhanu",
+      "phone",
+      "thumbsup",
+      "thumbsdown"
+    ]
+  },
+  "train_model": {
+    "dirs": {
+      "train_images": "workspace images train",
+      "test_images": "workspace images test"
+    },
+    "labels": [
+      "BhanuPratapSingh",
+      "Phone",
+      "ThumbsUp",
+      "ThumbsDown"
+    ]
+  },
   "object_detection_type": "webcam"
 }

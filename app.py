@@ -9,19 +9,27 @@ from utils.app_enums import AppMode
 
 # Defining main function
 def main():
+    # Welcome message
+    print('*' * 90)
+    print('* Welcome to custom object detection application using TFOD 2.0 API')
+    print('*' * 90)
+
     # Define application state
     state = ObjDict()
 
     # Configure application
     state = configure_application(state)
-    if state['IMAGE_CAPTURE_ENABLED']:
-        state = capture_images_for_training(state)
+    if state['LOAD_CONFIG_STATUS']:
+        if state['APP_CONFIG']['app_conf']['image_capture']:
+            state = capture_images_for_training(state)
 
-    if state['MODEL_TRAINING_ENABLED']:
-        state = train_model_for_custom_object_detection(state)
+        if state['APP_CONFIG']['app_conf']['train_model']:
+            state = train_model_for_custom_object_detection(state)
 
-    if state['OBJECT_DETECTION_ENABLED']:
-        state = run_object_detection(state)
+        if state['APP_CONFIG']['app_conf']['detect_object']:
+            state = run_object_detection(state)
+    else:
+        print('error loading application configuration file ...')
 
 
 # Run application
