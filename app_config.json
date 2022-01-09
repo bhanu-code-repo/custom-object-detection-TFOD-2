@@ -1,0 +1,9 @@
+{
+  "app_conf": {
+    "image_capture": false,
+    "train_model": false,
+    "detect_object": true
+  },
+  "app_mode": "debug",
+  "object_detection_type": "webcam"
+}
