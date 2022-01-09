@@ -1,6 +1,5 @@
 # Importing required packages
 import json, pyautogui
-from utils.app_enums import get_enum
 from utils.dir_handler import is_path_exists
 
 
@@ -26,6 +25,7 @@ class ObjDict(dict):
             raise AttributeError("No such attribute: " + name)
 
 
+# Function to read application configuration file
 def load_application_configuration(state):
     if is_path_exists(state['CONFIG_FILE_NAME']):
         with open(state['CONFIG_FILE_NAME']) as config_file:
@@ -49,29 +49,10 @@ def configure_application(state):
     # Load application configuration
     state = load_application_configuration(state)
 
-    # # Update application configuration
-    # state['IMAGE_CAPTURE_ENABLED'] = False if state['APP_CONFIG'] == {} \
-    #     else state['APP_CONFIG']['app_conf']['image_capture']
-    # state['MODEL_TRAINING_ENABLED'] = False if state['APP_CONFIG'] == {} \
-    #     else state['APP_CONFIG']['app_conf']['train_model']
-    # state['OBJECT_DETECTION_ENABLED'] = False if state['APP_CONFIG'] == {} \
-    #     else state['APP_CONFIG']['app_conf']['detect_object']
-    #
-    # # Define application operation state
-    # state['APP_MODE_ENABLED'] = get_enum('app_mode', 'debug') if state['APP_CONFIG'] == {} \
-    #     else get_enum('app_mode', state['APP_CONFIG']['app_mode'])
-    #
-    # # Define object detection type
-    # state['OBJECT_DETECTION_TYPE'] = get_enum('object_detection_type', 'webcam') if state['APP_CONFIG'] == {} \
-    #     else get_enum('object_detection_type', state['APP_CONFIG']['object_detection_type'])
-    #
-    # # Get image labels
-    # state['IMAGE_LABELS'] = [] if state['APP_CONFIG'] == {} \
-    #     else state['APP_CONFIG']['train_model']['labels']
-
     # Return application state information
     return state
 
 
+# Function to show user alert dialog
 def show_confirm_box(msg, title):
     return pyautogui.confirm(msg, title)

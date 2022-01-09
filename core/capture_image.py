@@ -1,8 +1,7 @@
 # Import required packages
 import cv2, time, uuid
 from utils.app_utils import show_confirm_box
-
-from utils.dir_handler import is_path_exists, get_path, make_dirs, get_dir_list, get_files_list, copy_files
+from utils.dir_handler import is_path_exists, get_path, make_dirs, get_dir_list
 
 
 # Configure directories for image capture and storing train-test split images

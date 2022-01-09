@@ -1,5 +1,4 @@
 # Importing required packages
-import object_detection
 from utils.app_utils import show_confirm_box
 from utils.dir_handler import get_path, get_dir_list, get_files_list, copy_files, delete_files
 
@@ -52,6 +51,7 @@ def train_test_split(state):
     return state
 
 
+# Function to train pre-trained model(transfer learning) for detecting custom labels
 def train_model_for_custom_object_detection(state):
     print('* Train Model Module - Start')
 

@@ -23,18 +23,22 @@ def is_path_exists(path):
     return True if os.path.exists(path) else False
 
 
+# Function to create directories
 def make_dirs(path, single_dir=True):
     os.mkdir(path) if single_dir else os.makedirs(path)
 
 
+# Function to get list of directories
 def get_dir_list(images_path):
     return os.listdir(images_path)
 
 
+# Function to get list of files
 def get_files_list(path):
     return os.walk(path)
 
 
+# Function to copy images and label xml files
 def copy_files(files, path, dest_path):
     for file in files:
         source = get_path([path, file])
@@ -42,6 +46,7 @@ def copy_files(files, path, dest_path):
         shutil.copy(source, destination)
 
 
+# Function to delete files from the directory
 def delete_files(data):
     for file in data[2]:
         file_path = os.path.join(data[0], file)
