@@ -17,6 +17,10 @@ For labeling images, use this,
 
 To install `labelimg`, use this command: `pip install labelimg`
 
+---
+## ToDo
+I will be updating the code to detect object from image as well as on video file
+
 
 ## Object Detection Results
 <img title="Custom Object Detection" alt="Python" width="200px" src="results/object_detection_1.png"/> | <img title="Custom Object Detection" alt="Python" width="200px" src="results/object_detection_2.png"/> | <img title="Custom Object Detection" alt="Python" width="200px" src="results/object_detection_3.png"/> | <img title="Custom Object Detection" alt="Python" width="200px" src="results/object_detection_4.png"/>   
