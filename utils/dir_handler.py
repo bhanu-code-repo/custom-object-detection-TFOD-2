@@ -38,16 +38,33 @@ def get_files_list(path):
     return os.walk(path)
 
 
-# Function to copy images and label xml files
-def copy_files(files, path, dest_path):
+# Function to copy bulk images and label xml files
+def copy_files_bulk(files, path, dest_path):
     for file in files:
         source = get_path([path, file])
         destination = get_path([dest_path, file])
         shutil.copy(source, destination)
 
 
+# Function to copy images and label xml files
+def copy_files(source, destination):
+    shutil.copy(source, destination)
+
+
 # Function to delete files from the directory
-def delete_files(data):
-    for file in data[2]:
-        file_path = os.path.join(data[0], file)
-        os.remove(file_path)
+def delete_files(data, single_file=False):
+    if not single_file:
+        for file in data[2]:
+            file_path = os.path.join(data[0], file)
+            os.remove(file_path)
+    else:
+        os.remove(data)
+
+
+# Function to execute command on command line terminal
+def run_command(cmd):
+    os.system(cmd)
+
+
+def get_abs_path(path):
+    return os.path.abspath(path)

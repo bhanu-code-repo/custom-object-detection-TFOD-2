@@ -10,6 +10,8 @@ def configure_directories(state):
     images_path = get_path(state['APP_CONFIG']['image_capture']['dirs']['images'].split(' '))
     if not is_path_exists(images_path):
         make_dirs(images_path, False)
+        folder = images_path.split("\\")[-1]
+        print(f'* --> created {folder} directory')
 
     # Get image labels
     labels = state['APP_CONFIG']['image_capture']['labels']
@@ -19,16 +21,21 @@ def configure_directories(state):
         if not is_path_exists(label_path):
             make_dirs(label_path)
             state['IMAGE_LABEL_PATHS'].append(label_path)
+            print(f'* --> created {label} directory')
 
     # Check and create path for train images if not exists
     train_images_path = get_path(state['APP_CONFIG']['train_model']['dirs']['train_images'].split(' '))
     if not is_path_exists(train_images_path):
         make_dirs(train_images_path)
+        folder = train_images_path.split("\\")[-1]
+        print(f'* --> created {folder} directory')
 
     # Check and create path for test images if not exists
     test_images_path = get_path(state['APP_CONFIG']['train_model']['dirs']['test_images'].split(' '))
     if not is_path_exists(test_images_path):
         make_dirs(test_images_path)
+        folder = test_images_path.split("\\")[-1]
+        print(f'* --> created {folder} directory')
 
     return state
 
@@ -70,6 +77,9 @@ def capture_images_for_training(state):
     print('* Image Capture Module - Start')
 
     # Configure image capture directories
+    # Configure directories
+    print('*' + '-' * 89)
+    print('* configuring paths and directories for image capture process')
     state = configure_directories(state)
 
     # Show alert dialog

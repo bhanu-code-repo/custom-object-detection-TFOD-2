@@ -1,7 +1,7 @@
 {
   "app_conf": {
     "image_capture": false,
-    "train_model": true,
+    "train_model": false,
     "detect_object": true
   },
   "app_mode": "debug",
@@ -20,14 +20,35 @@
   "train_model": {
     "dirs": {
       "train_images": "workspace images train",
-      "test_images": "workspace images test"
+      "test_images": "workspace images test",
+      "scripts": "workspace scripts",
+      "annotation": "workspace annotations",
+      "model": "workspace models",
+      "pre-trained_model": "workspace models pre-trained-models"
+    },
+    "files": {
+      "pipeline_config": "pipeline.config",
+      "tf_record_script_name": "generate_tfrecord.py",
+      "label_map_file_name": "label_map.pbtxt",
+      "model_training_script": "model_main_tf2.py"
     },
     "labels": [
       "BhanuPratapSingh",
       "Phone",
       "ThumbsUp",
       "ThumbsDown"
-    ]
+    ],
+    "custom_model_name": "my_ssd_mobnet",
+    "pre-trained_model_name": "ssd_mobilenet_v2_fpnlite_320x320_coco17_tpu-8",
+    "pre-trained_model_url": "http://download.tensorflow.org/models/object_detection/tf2/20200711/ssd_mobilenet_v2_fpnlite_320x320_coco17_tpu-8.tar.gz",
+    "tf_record_script_url": "https://raw.githubusercontent.com/bhanu-code-repo/tensorflow-object-detection/main/inputs/generate_tfrecord.py"
   },
-  "object_detection_type": "webcam"
+  "object_detection": {
+    "type": "webcam",
+    "paths": {
+      "checkpoint": "workspace models <model_name> ckpt-11",
+      "config_file": "workspace models <model_name> <pipeline_config_file>",
+      "label_file": "workspace annotations <label_file_name>"
+    }
+  }
 }

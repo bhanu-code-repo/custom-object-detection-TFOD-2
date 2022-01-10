@@ -23,7 +23,7 @@ def get_enum(key, value):
         if value.lower() == 'prod':
             return AppMode.PROD
 
-    if key.lower() == 'object_detection_type':
+    if key.lower() == 'object_detection':
         if value.lower() == 'webcam':
             return ObjectDetectionType.WEBCAM
         if value.lower() == 'image':
