@@ -15,7 +15,7 @@ For labeling images, use this,
 
 <img title="Conf File" alt="Python" width="600px" src="images/label_images.png"/>
 
-To install `labelimg`, use this command: `pip install labelimg'
+To install `labelimg`, use this command: `pip install labelimg`
 
 
 ## Object Detection Results
