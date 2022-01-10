@@ -1,5 +1,8 @@
-# custom-object-detection-TFOD-2
+# Custom Object Detection using TFOD 2.0 API
 Use Transfer Learning to create custom object detection model
+
+## About Project Usages
+<u>**Pre-requisit**</u>
 
 
 ## Object Detection Results
